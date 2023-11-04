@@ -1,0 +1,235 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+body,html{
+    font-family: 'Inter', sans-serif;
+}
+.main,
+body{
+    background: #000;
+    font-family: 'Inter', sans-serif;
+}
+.form_start{
+    padding-bottom: 73px;
+}
+.main .navigation{
+    height: 94px;
+    padding: 0 20px;
+    border-bottom: 0.2px solid #262626;
+}
+.main .navigation nav{
+    width: 100%;
+    height: 100%;
+    /* layout */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.container{
+    margin: 0 auto;
+}
+
+.form_container{
+    padding-top: 39px;
+}
+.progress-container{
+    padding: 0 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 50px;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress-container .rectangle-wrapper{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.progress-container .rectangle-wrapper .rectangle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: calc(100% - 5px);
+    background: #262626;
+    height: 7px;
+}
+.progress-container .rectangle-wrapper .circle{
+    height: 16px;
+    width: 16px;
+    border-radius: 100px;
+    background: #262626;
+    display: block;
+}
+
+.header-text{
+    margin-top: 40px;
+    color: #fff;
+    text-align: center;
+    animation: fadein 1s ease;
+    padding: 25px;
+}
+.header-text h3{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 14px;
+}
+.header-text h1{
+    font-size: 30px;
+    max-width: 570px;
+    margin: 0 auto;
+}
+.header-text span{
+    color: #F47B20;
+}
+.header-text p{
+    color:#B2B2B2;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 26px;
+    font-weight: 500;
+}
+.header-text p:nth-child(3){
+    margin-top: 20px;
+    margin-bottom: 10px;
+    max-width: 754px;
+}
+.header-text p:nth-child(4){
+    max-width: 700px;
+}
+.header-text button{
+    margin-top: 38px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #EE3524 -81.34%, #F47B20 111.6%);
+    box-shadow: 0px 8px 12px 0px rgba(178, 27, 32, 0.12);
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+    height: 60px;
+    max-width: 228px;
+}
+.fa-solid.fa-arrow-right{
+    margin-left: 2px;
+}
+.form_start .reviews{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    animation: fadein 1s ease;
+}
+.form_start .reviews .star{
+    display: flex;
+    gap: 5px;
+}
+.form_start .reviews .star img{
+    height: 20px;
+    width: 20px;
+}
+.form_start .reviews span{
+    color:#B2B2B2;
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: 400;
+
+}
+
+@keyframes fadein {
+    0%{
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(0,20px);
+    }
+    100%{
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0,0px);
+    }
+}
+
+
+@media screen and (min-width: 576px) {
+    .container{
+        max-width: 540px;
+    }
+    .progress-container .rectangle-wrapper .rectangle{
+        height: 10px;
+    }
+    .progress-container .rectangle-wrapper .circle{
+
+        height: 30px;
+        width: 30px;
+    }
+    .progress-container{
+        padding: 0 20px;
+        width: 100%;
+        max-width: 940px;
+    }
+    .header-text h3{
+        font-size: 27px;
+    }
+    .header-text h1{
+        font-size: 51px;
+    }
+    .header-text p{
+        font-size: 17px;
+    }
+    .form_start .reviews{
+        display: flex;
+        flex-direction:row;
+    }
+}
+@media screen and (min-width: 768px) {
+    .container{
+        max-width: 720px;
+    }
+    .progress-container .rectangle-wrapper .rectangle{
+        height: 17px;
+    }
+    .progress-container .rectangle-wrapper .circle{
+        height: 35px;
+        width: 35px;
+    }
+    .header-text{
+        padding: 0;
+    }
+}
+/* large */
+@media screen and (min-width: 992px) {
+    .container{
+        max-width: 960px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .container{
+        max-width: 1085px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .container{
+        max-width: 1320px;
+    }
+}
