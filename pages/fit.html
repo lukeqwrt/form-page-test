@@ -162,9 +162,9 @@
             <form class="grizzly-form submit_input">
                 <h1 class="form-question fit">Why do you think you'd be a good fit for The Academy?</h1>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Answer">
+                    <input class="academy" type="text" placeholder="Answer" required>
                 </div>
-                <button onclick="window.location.href='./scale.html'">
+                <button>
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -172,5 +172,18 @@
         </section>
     </div>
     <script src="../app.js"></script>
+    <script>
+        let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
+        const submit_input = document.querySelector('.submit_input')
+        submit_input.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const academy = document.querySelector('.academy')
+
+            formAnswerCached.goodfit = academy.value
+
+            window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
+            window.location.href = './scale.html'
+        })
+    </script>
 </body>
 </html>

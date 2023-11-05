@@ -161,13 +161,13 @@
                     grades online/canvas.</h1>
                 <div class="input-wrapper file">
                     <label for="aa" id="fileLabel">
-                        <span>No choose file</span> 
+                        <span id="filechange">No choose file</span> 
                         <input type='file' id="aa" onchange="pressed()" >
                         <label class="upload-btn" for="aa">Upload File</label>
                     </label>
 
                 </div>
-                <button onclick="window.location.href='./fit.html'">
+                <button>
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -175,5 +175,41 @@
         </section>
     </div>
     <script src="../app.js"></script>
+    <script>
+        const fileLabel = document.querySelector('#filechange')
+        // file chosen
+        window.pressed = function(){
+        var a = document.getElementById('aa');
+        if(a.value == "")
+        {
+            fileLabel.innerHTML = "No Choose File";
+            alert('No file chosen!')
+        }
+        else
+        {
+            var theSplit = a.value.split('\\');
+            fileLabel.innerHTML = theSplit[theSplit.length-1];
+        }
+        };
+
+        let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
+        const submit_input = document.querySelector('.submit_input')
+        submit_input.addEventListener('submit', (e) => {
+            e.preventDefault()
+            var a = document.getElementById('aa');
+            if(a.value == "")
+            {
+                alert('No file chosen!')
+                return
+            }
+            const file = document.querySelector('#aa')
+
+            formAnswerCached.file = file.value
+
+            window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
+            window.location.href = './fit.html'
+        })
+
+    </script>
 </body>
 </html>

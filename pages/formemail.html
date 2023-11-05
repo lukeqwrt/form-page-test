@@ -142,12 +142,9 @@
             </div>
 
             <form class="grizzly-form submit_input">
-                <div class="grizzly-content">
-
-                </div>
-                <h1 class="form-question">YESSIR! Great to have you here, Jhon. What email can we reach you on</h1>
-                <input type="email" placeholder="Enter your email" required/>
-                <button onclick="window.location.href='./bdayandgrad.html'">
+                <h1 class="form-question">YESSIR! Great to have you here, <span class="user_name"></span>. What email can we reach you on</h1>
+                <input class="email" type="email" placeholder="Enter your email" required/>
+                <button>
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -155,5 +152,24 @@
         </section>
     </div>
     <script src="../app.js"></script>
+    <script>
+        const user_name = document.querySelector('.user_name')
+        let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
+
+        const splitName = formAnswerCached.name.split(' ').slice(0, 1).join(' ')
+        user_name.textContent = splitName
+
+        const submit_input = document.querySelector('.submit_input')
+        submit_input.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const email = document.querySelector('.email').value
+
+            formAnswerCached.email = email
+
+            window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
+
+            window.location.href = './bdayandgrad.html'
+        })
+    </script>
 </body>
 </html>

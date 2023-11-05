@@ -29,7 +29,9 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
 }
+
 .container{
     margin: 0 auto;
 }

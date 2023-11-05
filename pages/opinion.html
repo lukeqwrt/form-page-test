@@ -154,11 +154,11 @@
             </div>
 
             <form class="grizzly-form submit_input">
-                <h1 class="form-question opinion">Jhon, be honest... what do you think is (or will be) the #1 bigggest obstacle holding you back from acceptance into your Dream University above?</h1>
+                <h1 class="form-question opinion"><span class="user_name"></span>, be honest... what do you think is (or will be) the #1 bigggest obstacle holding you back from acceptance into your Dream University above?</h1>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Your Opinion" required/>
+                    <input class="opinion-input" type="text" placeholder="Your Opinion" required/>
                 </div>
-                <button onclick="window.location.href='./ss.html'">
+                <button >
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -166,5 +166,22 @@
         </section>
     </div>
     <script src="../app.js"></script>
+    <script>
+        let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
+        const user_name = document.querySelector('.user_name')
+        const splitName = formAnswerCached.name.split(' ').slice(0, 1).join(' ')
+        user_name.textContent = splitName
+        
+        const submit_input = document.querySelector('.submit_input')
+        submit_input.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const opinion = document.querySelector('.opinion-input')
+
+            formAnswerCached.opinion = opinion.value
+
+            window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
+            window.location.href = './ss.html'
+        })
+    </script>
 </body>
 </html>

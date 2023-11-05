@@ -16,7 +16,7 @@
         <section class="navigation">
             <nav class="container">
                 
-                <i onclick="window.location.href='./dreamuniversity.html'" class="fa-solid fa-chevron-left"></i>
+                <i onclick="window.location.href='./interview.html'" class="fa-solid fa-chevron-left"></i>
                 
                 <img src="../assets/logo-header-nav/Grizzly Smaller.png" alt="">
                 <div class="time">
@@ -85,7 +85,6 @@
                             <div class="top-active">
                                 <div class="active-connect"></div>
                                 <div class="active-circle">
-                                    <div class="dark"></div>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +93,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -101,6 +103,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -108,6 +113,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -115,6 +123,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -122,6 +133,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -129,6 +143,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -136,6 +153,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -143,53 +163,55 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
           
                     </div>
                 </div>
             </div>
-
-            <form class="grizzly-form submit_input">
-                <h1 class="form-question progress">Your making progress. Please List out Your Three "Best" ECs.</h1>
-                <div class="input-wrapper-choices">
-                    <div class="choices">
-                        <input class="best" id="one" name="best" type="radio" value="1" checked="true" required/>
-                        <label class="choices-label" for="one">1</label>
+            <form class="grizzly-form calendar submit_input">
+                <h1 class="form-question calendar">YESSIR! Looks like you meet the basics for our application interview. Looks like we can help you DRAMATICALLY increase your university acceptance odds using our proven formulas, strategies, and resources.</h1>
+                <div class="input-wrapper calendar">
+                    <h3>Please fill out your details and you'll be taken to a calendar</h3>
+                    <div class="last_wrapper">
+                        <input class="name" type="text" placeholder="Jhon" required>
+                        <input class="lastname" type="text" placeholder="Last name" required>
+                        <input class="email" type="text" placeholder="jhon@gmail.com" required>
+                        <input class="mobilenum" type="text" placeholder="Mobile Number" required>
                     </div>
-                    <div class="choices">
-                        <input class="best" id="two" name="best" type="radio" value="2" />
-                        <label class="choices-label" for="two">2</label>
-                    </div>
-                    <div class="choices">
-                        <input class="best" id="three" name="best" type="radio" value="3" />
-                        <label class="choices-label" for="three">3</label>
-                    </div>
-                    <style>
-               
-                    </style>
-                    <!-- <input type="text" placeholder="Enter Your Dream University Name" required/> -->
                 </div>
-                <button>
-                    Next
+                <button >
+                    Submit
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
+                <style>
+             
+                </style>
             </form>
         </section>
     </div>
+
     <script src="../app.js"></script>
     <script>
-        
         let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
         const submit_input = document.querySelector('.submit_input')
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
-            const choices = document.querySelector('input[name="best"]:checked')
+            const name = document.querySelector('.name')
+            const lastname = document.querySelector('.lastname')
+            const email = document.querySelector('.email')
+            const mobilenum = document.querySelector('.mobilenum')
 
-            formAnswerCached.choices = choices.value
+            formAnswerCached.name = name.value
+            formAnswerCached.lastname = lastname.value
+            formAnswerCached.email = email.value
+            formAnswerCached.mobilenumber = mobilenum.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
-            window.location.href = './opinion.html'
+            // window.location.href = './brand.html'
         })
     </script>
 </body>

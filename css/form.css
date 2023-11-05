@@ -21,6 +21,13 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+.main .navigation nav img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .navigation nav i{
@@ -243,6 +250,10 @@ body{
 .grizzly-form .input-wrapper-choices .choices input{
     display: none;
 }
+
+.grizzly-form .input-wrapper-choices .choices input[type=radio]:checked + .choices-label{
+    border: 1px solid #EF4423;
+}
 .grizzly-form .input-wrapper-choices .choices{
     text-align: left;
 }
@@ -308,6 +319,165 @@ body{
 .form-question.scale{
     max-width: 980px;       
 }
+.input-wrapper.scale{
+    max-width: 670px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+.input-wrapper.scale label input{
+    display: none;
+}
+.input-wrapper.scale label .check-triangle{
+    height: 40px;
+    width:40px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    transform: rotate(48deg);
+    border: 5px solid #292929;
+    border-radius: 12px;
+    background: #404040;
+    color: #C5C5C5;
+    cursor: pointer;
+}
+.input-wrapper.scale label input[type=radio]:checked + .check-triangle{
+    border: 5px solid #fff;
+    color: #fff;
+    background: #EF4423;
+}
+.input-wrapper.scale label .check-triangle span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-48deg);
+}
+/* brand */
+.grizzly-form.brand h1{
+    max-width: 600px;
+}
+.input-wrapper.brand{
+    width: 100%;
+    max-width: 370px;
+    justify-content: space-between;
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+}
+.input-wrapper.brand label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+
+}
+.input-wrapper.brand label span{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #999;
+}
+.input-wrapper.brand label input{
+ 
+    display: none;
+}
+.input-wrapper.brand label .check-brand{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.input-wrapper.brand label input[type=radio]:checked > span{
+    color: #fff;
+}
+.input-wrapper.brand label input[type=radio]:checked + .check-brand .circle-brand{
+    background: #EF4423;
+    color: #fff;
+    border: 2px solid #fff !important;
+}
+.input-wrapper.brand label input[type=radio]:checked + .check-brand span{
+    color: #fff;
+}
+.input-wrapper.brand label .check-brand .circle-brand{
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    border: 2px solid #000;
+    background: #1C1C1C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* interview */
+.input-wrapper.interview{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.input-wrapper.interview label input{
+    display: none;
+}
+.input-wrapper.interview label input[type="radio"]:checked + .check-interview{
+    background: rgba(0, 128, 0, 0.281);
+    border: 1px solid rgb(9, 180, 9);
+}
+.input-wrapper.interview label{
+    width: 100%;
+}
+.input-wrapper.interview label .check-interview{
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.input-wrapper.interview label .check-interview:hover{
+    background: rgba(0, 128, 0, 0.281);
+    border: 1px solid rgb(9, 180, 9);
+}
+.grizzly-form.interview h3{
+    font-size: 27px;
+    margin-bottom: 17px;
+}
+
+.grizzly-form.calendar h3{
+    /* font-size: 27px; */
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+.form-question.calendar{
+    max-width: 1170px;
+}
+.input-wrapper.calendar{
+    max-width: 1200px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+.input-wrapper.calendar .last_wrapper{
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+    max-width: 640px;
+}
+.input-wrapper.calendar .last_wrapper input{
+    margin: 0;
+}
 @keyframes fadein {
     0%{
         visibility: hidden;
@@ -368,7 +538,29 @@ body{
     .grizzly-form.scale h3{
         font-size: 27px;
     }
-
+    .input-wrapper.interview label .check-interview{
+        width: 140px;
+    }
+    .input-wrapper.interview{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .input-wrapper.interview label{
+        width:unset;
+    }
+    .grizzly-form.calendar h3{
+        font-size: 27px;
+    }
+    .input-wrapper.calendar .last_wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr ;
+        gap: 15px;
+        width: 100%;
+        max-width: 640px;
+    }
 }
 @media screen and (min-width: 768px) {
     .container{

@@ -153,9 +153,9 @@
                 </div>
                 <h1 class="form-question">Great, now let's get you IN. What are your dream Elite Universities</h1>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Enter Your Dream University Name" required/>
+                    <input class="univ" type="text" placeholder="Enter Your Dream University Name" required/>
                 </div>
-                <button onclick="window.location.href='./ecs.html'">
+                <button>
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -163,5 +163,19 @@
         </section>
     </div>
     <script src="../app.js"></script>
+    <script>
+        let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
+        const submit_input = document.querySelector('.submit_input')
+        submit_input.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const univ = document.querySelector('.univ').value
+
+            formAnswerCached.dreamUniversity = univ
+
+            window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
+
+            window.location.href = './ecs.html'
+        })
+    </script>
 </body>
 </html>

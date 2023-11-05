@@ -150,10 +150,12 @@
                 </div>
                 <h1 class="form-question">Boom! Now What's Your High School Graduation Year and Birthday</h1>
                 <div class="input-wrapper">
-                    <input type="text" placeholder="Birthday" required/>
-                    <input type="text" placeholder="Graduation Year-" required/>
+                    <input class="bday" type="text" placeholder="Birthday"
+                    onfocus="(this.type='date')" required/>
+                    <input class="grad" type="text" placeholder="Graduation Year-"
+                    onfocus="(this.type='date')"  required/>
                 </div>
-                <button onclick="window.location.href='./dreamuniversity.html'">
+                <button>
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -161,5 +163,21 @@
         </section>
     </div>
     <script src="../app.js"></script>
+    <script>
+        let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
+        const submit_input = document.querySelector('.submit_input')
+        submit_input.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const bday = document.querySelector('.bday').value
+            const grad = document.querySelector('.grad').value
+
+            formAnswerCached.bday = bday
+            formAnswerCached.grad = grad
+
+            window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
+
+            window.location.href = './dreamuniversity.html'
+        })
+    </script>
 </body>
 </html>

@@ -16,7 +16,7 @@
         <section class="navigation">
             <nav class="container">
                 
-                <i onclick="window.location.href='./dreamuniversity.html'" class="fa-solid fa-chevron-left"></i>
+                <i onclick="window.location.href='./interview.html'" class="fa-solid fa-chevron-left"></i>
                 
                 <img src="../assets/logo-header-nav/Grizzly Smaller.png" alt="">
                 <div class="time">
@@ -85,7 +85,6 @@
                             <div class="top-active">
                                 <div class="active-connect"></div>
                                 <div class="active-circle">
-                                    <div class="dark"></div>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +93,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -101,6 +103,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -108,6 +113,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -115,6 +123,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -122,6 +133,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -129,6 +143,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -136,6 +153,10 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                    <div class="dark"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -149,47 +170,55 @@
                     </div>
                 </div>
             </div>
-
-            <form class="grizzly-form submit_input">
-                <h1 class="form-question progress">Your making progress. Please List out Your Three "Best" ECs.</h1>
-                <div class="input-wrapper-choices">
-                    <div class="choices">
-                        <input class="best" id="one" name="best" type="radio" value="1" checked="true" required/>
-                        <label class="choices-label" for="one">1</label>
-                    </div>
-                    <div class="choices">
-                        <input class="best" id="two" name="best" type="radio" value="2" />
-                        <label class="choices-label" for="two">2</label>
-                    </div>
-                    <div class="choices">
-                        <input class="best" id="three" name="best" type="radio" value="3" />
-                        <label class="choices-label" for="three">3</label>
-                    </div>
-                    <style>
-               
-                    </style>
-                    <!-- <input type="text" placeholder="Enter Your Dream University Name" required/> -->
+            <form class="grizzly-form interview submit_input">
+                <h3>Alright, <span class="user_name"></span> this is it - you're at the last question. </h3>
+                <h1 class="form-question interview">If you qualify, will you be able to commit to $295 a month?</h1>
+                <div class="input-wrapper commit interview">
+                    <label for="interview1">
+                        <input type="radio" name="interview" id="interview1" checked="true" value="Yes">
+                        <div class="check-interview">
+                            <span class="circle-interview">
+                                Yes
+                            </span>
+                            <!-- <span>YouTube</span> -->
+                        </div>
+                    </label>
+                    <label for="interview2">
+                        <input type="radio" name="interview" id="interview2" value="No">
+                        <div class="check-interview">
+                            <span class="circle-interview">
+                                No
+                            </span>
+                            <!-- <span>YouTube</span> -->
+                        </div>
+                    </label>
                 </div>
-                <button>
+                <button >
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
+                <style>
+             
+                </style>
             </form>
         </section>
     </div>
+
     <script src="../app.js"></script>
     <script>
-        
         let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
+        const user_name = document.querySelector('.user_name')
+        const splitName = formAnswerCached.name.split(' ').slice(0, 1).join(' ')
+        user_name.textContent = splitName
         const submit_input = document.querySelector('.submit_input')
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
-            const choices = document.querySelector('input[name="best"]:checked')
+            const commit = document.querySelector('input[name="interview"]:checked')
 
-            formAnswerCached.choices = choices.value
+            formAnswerCached.commit = commit.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
-            window.location.href = './opinion.html'
+            window.location.href = './calendar.html'
         })
     </script>
 </body>

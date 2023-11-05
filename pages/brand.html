@@ -16,7 +16,7 @@
         <section class="navigation">
             <nav class="container">
                 
-                <i onclick="window.location.href='./dreamuniversity.html'" class="fa-solid fa-chevron-left"></i>
+                <i onclick="window.location.href='./scale.html'" class="fa-solid fa-chevron-left"></i>
                 
                 <img src="../assets/logo-header-nav/Grizzly Smaller.png" alt="">
                 <div class="time">
@@ -85,7 +85,6 @@
                             <div class="top-active">
                                 <div class="active-connect"></div>
                                 <div class="active-circle">
-                                    <div class="dark"></div>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +93,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -101,6 +103,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -108,6 +113,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -115,6 +123,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -122,6 +133,10 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                    <div class="dark"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -149,47 +164,69 @@
                     </div>
                 </div>
             </div>
-
-            <form class="grizzly-form submit_input">
-                <h1 class="form-question progress">Your making progress. Please List out Your Three "Best" ECs.</h1>
-                <div class="input-wrapper-choices">
-                    <div class="choices">
-                        <input class="best" id="one" name="best" type="radio" value="1" checked="true" required/>
-                        <label class="choices-label" for="one">1</label>
-                    </div>
-                    <div class="choices">
-                        <input class="best" id="two" name="best" type="radio" value="2" />
-                        <label class="choices-label" for="two">2</label>
-                    </div>
-                    <div class="choices">
-                        <input class="best" id="three" name="best" type="radio" value="3" />
-                        <label class="choices-label" for="three">3</label>
-                    </div>
+            <form class="grizzly-form brand submit_input">
+                <h1 class="form-question brand">Where Did Our Brand First Catch Your Attention?</h1>
+                <div class="input-wrapper brand">
                     <style>
-               
+                   
                     </style>
-                    <!-- <input type="text" placeholder="Enter Your Dream University Name" required/> -->
+                    <label for="brand1">
+                        <input type="radio" name="brand" id="brand1" checked="true" value="youtube">
+                        <div class="check-brand">
+                            <span class="circle-brand">
+                                1
+                            </span>
+                            <span>YouTube</span>
+                        </div>
+                    </label>
+                    <label for="brand2">
+                        <input type="radio" name="brand" id="brand2" value="counselor">
+                        <div class="check-brand">
+                            <span class="circle-brand">
+                                2
+                            </span>
+                            <span>Counselor</span>
+                        </div>
+                    </label>
+                    <label for="brand3">
+                        <input type="radio" name="brand" id="brand3" value="Referral">
+                        <div class="check-brand">
+                            <span class="circle-brand">
+                                3
+                            </span>
+                            <span>Referral</span>
+                        </div>
+                    </label>
+                    <label for="brand4">
+                        <input type="radio" name="brand" id="brand4" value="Reddit">
+                        <div class="check-brand">
+                            <span class="circle-brand">
+                                4
+                            </span>
+                            <span>Reddit</span>
+                        </div>
+                    </label>
                 </div>
-                <button>
+                <button >
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </form>
         </section>
     </div>
+
     <script src="../app.js"></script>
     <script>
-        
         let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
         const submit_input = document.querySelector('.submit_input')
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
-            const choices = document.querySelector('input[name="best"]:checked')
+            const brand = document.querySelector('input[name="brand"]:checked')
 
-            formAnswerCached.choices = choices.value
+            formAnswerCached.brand = brand.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
-            window.location.href = './opinion.html'
+            window.location.href = './interview.html'
         })
     </script>
 </body>

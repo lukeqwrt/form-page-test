@@ -162,46 +162,11 @@
                 </div>
             </div>
             <form class="grizzly-form scale submit_input">
-                <h3>Almost there, Jhon, just 4 more questions.</h3>
+                <h3>Almost there, <span class="user_name">Jhon</span> , just 4 more questions.</h3>
                 <h1 class="form-question scale">On a scale of 1-10... (1 being I'm fine where I am, and 10 being I'II do anything to get into my dream university.) What number are you?</h1>
                 <div class="input-wrapper scale">
-                    <style>
-                        .input-wrapper.scale{
-                            max-width: 670px;
-                            margin-top: 40px;
-                            display: flex;
-                            justify-content: space-between;
-                        }
-                        .input-wrapper.scale label input{
-                            display: none;
-                        }
-                        .input-wrapper.scale label .check-triangle{
-                            height: 40px;
-                            width:40px;
-                            font-size: 20px;
-                            font-weight: bold;
-                            position: relative;
-                            transform: rotate(48deg);
-                            border: 5px solid #292929;
-                            border-radius: 12px;
-                            background: #404040;
-                            color: #C5C5C5;
-                            cursor: pointer;
-                        }
-                        .input-wrapper.scale label input[type=radio]:checked + .check-triangle{
-                            border: 5px solid #fff;
-                            color: #fff;
-                            background: #EF4423;
-                        }
-                        .input-wrapper.scale label .check-triangle span{
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%,-50%) rotate(-48deg);
-                        }
-                    </style>
                     <label for="num1">
-                        <input type="radio" name="scale" id="num1" value="1">
+                        <input type="radio" name="scale" id="num1" checked="true" value="1">
                         <div class="check-triangle">
                             <span>
                                 1
@@ -209,7 +174,7 @@
                         </div>
                     </label>
                     <label for="num2">
-                        <input type="radio" name="scale" id="num2" value="1">
+                        <input type="radio" name="scale" id="num2" value="2">
                         <div class="check-triangle">
                             <span>
                                 2
@@ -217,7 +182,7 @@
                         </div>
                     </label>
                     <label for="num3">
-                        <input type="radio" name="scale" class="cb" id="num3" value="1">
+                        <input type="radio" name="scale" class="cb" id="num3" value="3">
                         <div class="check-triangle">
                             <span>
                                 3
@@ -225,7 +190,7 @@
                         </div>
                     </label>
                     <label for="num4">
-                        <input type="radio" name="scale" class="cb" id="num4" value="1">
+                        <input type="radio" name="scale" class="cb" id="num4" value="4">
                         <div class="check-triangle">
                             <span>
                                 4
@@ -233,7 +198,7 @@
                         </div>
                     </label>
                     <label for="num5">
-                        <input type="radio" name="scale" class="cb" id="num5" value="1">
+                        <input type="radio" name="scale" class="cb" id="num5" value="5">
                         <div class="check-triangle">
                             <span>
                                 5
@@ -241,7 +206,7 @@
                         </div>
                     </label>
                     <label for="num6">
-                        <input type="radio" name="scale" class="cb" id="num6" value="1">
+                        <input type="radio" name="scale" class="cb" id="num6" value="6">
                         <div class="check-triangle">
                             <span>
                                 6
@@ -249,7 +214,7 @@
                         </div>
                     </label>
                     <label for="num7">
-                        <input type="radio" name="scale" class="cb" id="num7" value="1">
+                        <input type="radio" name="scale" class="cb" id="num7" value="7">
                         <div class="check-triangle">
                             <span>
                                 7
@@ -257,7 +222,7 @@
                         </div>
                     </label>
                     <label for="num8">
-                        <input type="radio" name="scale" class="cb" id="num8" value="1">
+                        <input type="radio" name="scale" class="cb" id="num8" value="8">
                         <div class="check-triangle">
                             <span>
                                 8
@@ -265,7 +230,7 @@
                         </div>
                     </label>
                     <label for="num9">
-                        <input type="radio" name="scale" class="cb" id="num9" value="1">
+                        <input type="radio" name="scale" class="cb" id="num9" value="9">
                         <div class="check-triangle">
                             <span>
                                 9
@@ -273,7 +238,7 @@
                         </div>
                     </label>
                     <label for="num10">
-                        <input type="radio" name="scale" class="cb" id="num10" value="1">
+                        <input type="radio" name="scale" class="cb" id="num10" value="10">
                         <div class="check-triangle">
                             <span>
                                 10
@@ -281,7 +246,7 @@
                         </div>
                     </label>
                 </div>
-                <button onclick="window.location.href=''">
+                <button>
                     Next
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -293,5 +258,22 @@
     </div>
 
     <script src="../app.js"></script>
+    <script>
+        let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
+        const user_name = document.querySelector('.user_name')
+        
+        const splitName = formAnswerCached.name.split(' ').slice(0, 1).join(' ')
+        user_name.textContent = splitName
+        const submit_input = document.querySelector('.submit_input')
+        submit_input.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const scale = document.querySelector('input[name="scale"]:checked')
+
+            formAnswerCached.scale = scale.value
+
+            window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
+            window.location.href = './brand.html'
+        })
+    </script>
 </body>
 </html>

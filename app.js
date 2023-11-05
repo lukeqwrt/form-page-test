@@ -15,10 +15,11 @@ function countdown() {
             cached.minute = 0
             cached.second = 0
             clearInterval(interval);
+            sessionStorage.clear();
             return
 
         } 
-        minutes = cached.minute   
+        minutes = cached.minute 
         seconds = cached.second   
     }
       seconds -= 1;
@@ -31,7 +32,7 @@ function countdown() {
         seconds = '0' + seconds;    
      }
 
-     minute.innerHTML = minutes
+     minute.innerHTML = (minutes < 10 ? '0' : '') + minutes
      second.innerText = seconds
     window.sessionStorage.setItem( 'time', JSON.stringify({
        minute: minutes,
@@ -51,24 +52,4 @@ function countdown() {
 countdown()
 let cached = JSON.parse(window.sessionStorage.getItem('hotelreservation-cached'));
 
-// submit
-const submit_input = document.querySelector('.submit_input')
-submit_input.addEventListener('submit', (e) => {
-    e.preventDefault()
-    console.log(e.target.input.value)
 
-})
-
-// file chosen
-window.pressed = function(){
-  var a = document.getElementById('aa');
-  if(a.value == "")
-  {
-      fileLabel.innerHTML = "No Choose File";
-  }
-  else
-  {
-      var theSplit = a.value.split('\\');
-      fileLabel.innerHTML = theSplit[theSplit.length-1];
-  }
-};
