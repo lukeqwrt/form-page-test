@@ -1,3 +1,5 @@
+<!-- #version=0.0.0-1#4 ls 2023-11-10T08:55:31 8170CC3DD4842439-3B420A3DF2971BE6-4D39DC8170BB0E88 -->
+<!-- #version=0.0.0-1#3 ls 2023-11-10T08:55:09 8170CC3DD4842439-3B420A3DF2971BE6-A05347C0C069B5C3 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +27,10 @@
                 <img src="./assets/logo-header-nav/Grizzly Smaller.png" alt="">
             </nav>
         </section>
+        <img class="vec-top" src="./assets/logo-header-nav/Vector_bottom.png" alt="">
+        <img class="vec-bottom" src="./assets/logo-header-nav/Vector_top.png" alt="">
         <section class="form_start">
+     
             <div class="form_container container">
                 <div class="progress-container">
                     <div class="rectangle-wrapper">
@@ -51,12 +56,18 @@
                 <h1>Grizzly <span>Elite</span> Training Academy Application</h1>
                 <p>This is an elite, invite only, academy of top grizzlies (our code word for an ambitious high school student) who want to get into their dream Elite University by becoming <underline> THAT</underline> Ultra High Achieving Student (aka a stud).</p>
                 <p>However, we only accept those who are willing to take obsessive action. If that's you, then Let's Do It!</p>
-                <a href="./form.html">
-                    <button>
+
+                    <button id="get_started">
                         Get Started
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <svg width="50" height="37" viewBox="0 0 56 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="grpArrow">
+                            <rect width="56" height="37" />
+                            <path id="Line1" d="M5 17.5H44" stroke="black" stroke-width="3"/>
+                            <path id="Line2" d="M35 8L45 18" stroke="black" stroke-width="3"/>
+                            <path id="Line3" d="M35 27.2704L45 17" stroke="black" stroke-width="3"/>
+                            </g>
+                            </svg>
                     </button>
-                </a>
             </div>
             <div class="reviews">
                 <div class="star">
@@ -70,5 +81,16 @@
             </div>
         </section>
     </div>
+    <script>
+        const get_started = document.querySelector('#get_started')
+        const wrapDiv = document.querySelector('.header-text')
+        get_started.addEventListener('click', () => {
+            wrapDiv.classList.add('fadeOut')
+
+            wrapDiv.addEventListener("transitionend", () => {
+                window.location.href = './form.html'
+            });
+        })
+    </script>
 </body>
 </html>

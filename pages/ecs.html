@@ -1,3 +1,5 @@
+<!-- #version=0.0.0-1 ls 2023-11-10T06:40:28 8170CC3DD4842439-503594C7FCEB23FD-4CE601DCFE068076 -->
+<!-- #version=0.0.0-0#4 ls 2023-11-10T06:40:28 8170CC3DD4842439-503594C7FCEB23FD-4CE601DCFE068076 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,43 +155,44 @@
             <form class="grizzly-form submit_input">
                 <h1 class="form-question progress">Your making progress. Please List out Your Three "Best" ECs.</h1>
                 <div class="input-wrapper-choices">
-                    <div class="choices">
-                        <input class="best" id="one" name="best" type="radio" value="1" checked="true" required/>
-                        <label class="choices-label" for="one">1</label>
-                    </div>
-                    <div class="choices">
-                        <input class="best" id="two" name="best" type="radio" value="2" />
-                        <label class="choices-label" for="two">2</label>
-                    </div>
-                    <div class="choices">
-                        <input class="best" id="three" name="best" type="radio" value="3" />
-                        <label class="choices-label" for="three">3</label>
-                    </div>
-                    <style>
-               
-                    </style>
-                    <!-- <input type="text" placeholder="Enter Your Dream University Name" required/> -->
+                    <input type="text" class="ecs1" placeholder="1" required>
+                    <input type="text" class="ecs2" placeholder="2" required>
+                    <input type="text" class="ecs3" placeholder="3" required>
                 </div>
-                <button>
-                    Next
-                    <i class="fa-solid fa-arrow-right"></i>
+
+                <button id="get_started">
+                    Get Started
+                    <svg width="50" height="37" viewBox="0 0 56 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="grpArrow">
+                        <rect width="56" height="37" />
+                        <path id="Line1" d="M5 17.5H44" stroke="black" stroke-width="3"/>
+                        <path id="Line2" d="M35 8L45 18" stroke="black" stroke-width="3"/>
+                        <path id="Line3" d="M35 27.2704L45 17" stroke="black" stroke-width="3"/>
+                        </g>
+                        </svg>
                 </button>
             </form>
         </section>
     </div>
     <script src="../app.js"></script>
     <script>
-        
+        const grizzlyForm = document.querySelector('.grizzly-form')
         let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
         const submit_input = document.querySelector('.submit_input')
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
-            const choices = document.querySelector('input[name="best"]:checked')
-
-            formAnswerCached.choices = choices.value
+            const choices1 = document.querySelector('.ecs1')
+            const choices2 = document.querySelector('.ecs2')
+            const choices3 = document.querySelector('.ecs3')
+            grizzlyForm.classList.add('fadeOut')
+            formAnswerCached.ecs1 = choices1.value
+            formAnswerCached.ecs2 = choices2.value
+            formAnswerCached.ecs3 = choices3.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
-            window.location.href = './opinion.html'
+            grizzlyForm.addEventListener("transitionend", () => {
+                window.location.href = './opinion.html'
+            });
         })
     </script>
 </body>

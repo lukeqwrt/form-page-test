@@ -1,3 +1,4 @@
+/* #version=0.0.0-0#1 ls 2023-11-10T02:42:11 6AA220AC3E7E5C54 */
 var interval;
 
 function countdown() {
@@ -14,8 +15,8 @@ function countdown() {
         if (cached.minute  == 0 && cached.minute  == 0){
             cached.minute = 0
             cached.second = 0
-            clearInterval(interval);
-            sessionStorage.clear();
+            // clearInterval(interval);
+            // sessionStorage.clear();
             return
 
         } 

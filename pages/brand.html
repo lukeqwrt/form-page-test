@@ -1,3 +1,4 @@
+<!-- #version=0.0.0-0#1 ls 2023-11-10T03:02:06 8170CC3DD4842439-5083C4488E84CBF2-4CE601DCFE068076 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,7 +175,7 @@
                         <input type="radio" name="brand" id="brand1" checked="true" value="youtube">
                         <div class="check-brand">
                             <span class="circle-brand">
-                                1
+                                <img src="../assets/logo-header-nav/logos_youtube-icon.png" alt="">
                             </span>
                             <span>YouTube</span>
                         </div>
@@ -183,7 +184,7 @@
                         <input type="radio" name="brand" id="brand2" value="counselor">
                         <div class="check-brand">
                             <span class="circle-brand">
-                                2
+                                <img src="../assets/logo-header-nav/image 15 (traced).png" alt="">
                             </span>
                             <span>Counselor</span>
                         </div>
@@ -192,7 +193,7 @@
                         <input type="radio" name="brand" id="brand3" value="Referral">
                         <div class="check-brand">
                             <span class="circle-brand">
-                                3
+                                <img src="../assets/logo-header-nav/image 15 (traced) (1).png" alt="">
                             </span>
                             <span>Referral</span>
                         </div>
@@ -201,15 +202,22 @@
                         <input type="radio" name="brand" id="brand4" value="Reddit">
                         <div class="check-brand">
                             <span class="circle-brand">
-                                4
+                                <img src="../assets/logo-header-nav/logos_reddit-icon.png" alt="">
                             </span>
                             <span>Reddit</span>
                         </div>
                     </label>
                 </div>
-                <button >
-                    Next
-                    <i class="fa-solid fa-arrow-right"></i>
+                <button id="get_started">
+                    Get Started
+                    <svg width="50" height="37" viewBox="0 0 56 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="grpArrow">
+                        <rect width="56" height="37" />
+                        <path id="Line1" d="M5 17.5H44" stroke="black" stroke-width="3"/>
+                        <path id="Line2" d="M35 8L45 18" stroke="black" stroke-width="3"/>
+                        <path id="Line3" d="M35 27.2704L45 17" stroke="black" stroke-width="3"/>
+                        </g>
+                        </svg>
                 </button>
             </form>
         </section>
@@ -217,16 +225,21 @@
 
     <script src="../app.js"></script>
     <script>
+        const grizzlyForm = document.querySelector('.grizzly-form')
         let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
         const submit_input = document.querySelector('.submit_input')
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
             const brand = document.querySelector('input[name="brand"]:checked')
-
+            grizzlyForm.classList.add('fadeOut')
             formAnswerCached.brand = brand.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
-            window.location.href = './interview.html'
+            grizzlyForm.addEventListener("transitionend", () => {
+                window.location.href = './interview.html'
+                
+
+            });
         })
     </script>
 </body>

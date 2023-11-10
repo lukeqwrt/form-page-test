@@ -1,3 +1,5 @@
+/* #version=0.0.0-0#36 ls 2023-11-10T09:33:50 82C0AB5FBE2D7F96 */
+/* #version=0.0.0-0#35 ls 2023-11-10T09:13:28 5417798B04D42DE2 */
 *{
     padding: 0;
     margin: 0;
@@ -45,6 +47,7 @@ body{
 .form_start{
     padding-bottom: 73px;
 }
+
 .main .navigation{
     height: 94px;
     padding: 0 20px;
@@ -165,6 +168,12 @@ body{
     padding: 0 20px;
     padding-bottom: 50px;
     animation: fadein 1s ease;
+    transition: 0.7s ease;
+}
+.grizzly-form.fadeOut{
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(0,20px);
 }
 .grizzly-form h1{
     font-size:23px;
@@ -172,6 +181,9 @@ body{
     margin: 0 auto;
     line-height: 35px;
     text-align: center;
+}
+.bday{
+    color-scheme: dark;
 }
 .grizzly-form input{
     width: 100%;
@@ -206,7 +218,83 @@ body{
     height: 60px;
     max-width: 228px;
 }
+#get_started {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto;
+    margin-top: 30px;
+    position:relative;
+    overflow: hidden;
+}
+#get_started::after{
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100px;
+    height: 100%;
+    width: 90px;
+    background: hsla(0,0%,100%,.4);
+    -webkit-transition: all .15s linear;
+    transition: all .15s linear;
+    -webkit-transform: skewX(-20deg) translateX(0);
+    transform: skewX(-20deg) translateX(0);
+}
+#get_started:hover::after{
+    left: 260px;
+}
+#grpArrow{
+    animation: move 2s ease-in-out infinite;
+}
 
+#Line2{
+    
+    animation: fold 2s ease-in-out infinite;
+
+}
+#Line3{
+    animation: foldReverse 2s ease-in-out infinite;
+
+}
+
+@keyframes move {
+    0%{
+        transform: translate(-50px,0);
+    }
+    30%{
+        transform: translate(0,0);
+    }
+    80%{
+        transform: translate(-20px,0);        
+    }
+    100%{
+        transform: translate(40px,0);
+    }
+}
+@keyframes fold {
+    0%{
+        transform: translate(0px,0px) rotate(0deg);
+    }
+    50%{
+        transform: translate(0px,0px) rotate(0deg);
+    }
+    100%{
+        transform: translate(-4px,16.5px) rotate(-21deg);
+    }
+}
+@keyframes foldReverse {
+    0%{
+        transform: translate(0px,0px) rotate(0deg);
+    }
+    50%{
+        transform: translate(0px,0px) rotate(0deg);
+    }
+    100%{
+        transform: translate(8px,-13.5px) rotate(21deg);
+    }
+}
 .input-wrapper{
     display: flex;
     flex-direction: column;
@@ -353,13 +441,17 @@ body{
     left: 50%;
     transform: translate(-50%,-50%) rotate(-48deg);
 }
+.input-wrapper-choices .ecs2,
+.input-wrapper-choices .ecs3{
+    margin: 0;
+}
 /* brand */
 .grizzly-form.brand h1{
     max-width: 600px;
 }
 .input-wrapper.brand{
     width: 100%;
-    max-width: 370px;
+    max-width: 390px;
     justify-content: space-between;
     margin-top: 40px;
     display: flex;
@@ -396,14 +488,14 @@ body{
 .input-wrapper.brand label input[type=radio]:checked + .check-brand .circle-brand{
     background: #EF4423;
     color: #fff;
-    border: 2px solid #fff !important;
+    border: 3px solid #fff !important;
 }
 .input-wrapper.brand label input[type=radio]:checked + .check-brand span{
     color: #fff;
 }
 .input-wrapper.brand label .check-brand .circle-brand{
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 100px;
     border: 2px solid #000;
     background: #1C1C1C;
@@ -432,14 +524,18 @@ body{
     width: 100%;
 }
 .input-wrapper.interview label .check-interview{
-    height: 150px;
+    height: 170px;
     width: 100%;
     border-radius: 5px;
     background: none;
     border: 1px solid #999;
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     justify-content: center;
     align-items: center;
+    font-weight: 700;
+    font-size: 20px;
     cursor: pointer;
     transition: 0.3s ease;
 }
@@ -478,6 +574,9 @@ body{
 .input-wrapper.calendar .last_wrapper input{
     margin: 0;
 }
+.input-wrapper.calendar .last_wrapper input:nth-child(1){
+    grid-column: 1/3;
+}
 @keyframes fadein {
     0%{
         visibility: hidden;
@@ -488,6 +587,18 @@ body{
         visibility: visible;
         opacity: 1;
         transform: translate(0,0px);
+    }
+}
+@keyframes fadeOut {
+    0%{
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0,0px);
+    }
+    100%{
+        visibility:hidden;
+        opacity: 0;
+        transform: translate(0,20px);
     }
 }
 @media screen and (min-width: 576px) {

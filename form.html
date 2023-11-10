@@ -1,3 +1,4 @@
+<!-- #version=0.0.0-0#1 ls 2023-11-10T02:57:42 8170CC3DD4842439-0-52C8C07403F83D1E -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,23 +141,35 @@
             <form class="grizzly-form" id="submit_input">
                 <h1 class="form-question">Okay, we'll make this quick and painless (pinky promise). But before we start - we don't wanna be rude... So what's your name?</h1>
                 <input type="text" class="name"  placeholder="Enter your name" required/>
-                <button>
-                    Next
-                    <i class="fa-solid fa-arrow-right"></i>
+                <button id="get_started">
+                    Get Started
+                    <svg width="50" height="37" viewBox="0 0 56 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="grpArrow">
+                        <rect width="56" height="37" />
+                        <path id="Line1" d="M5 17.5H44" stroke="black" stroke-width="3"/>
+                        <path id="Line2" d="M35 8L45 18" stroke="black" stroke-width="3"/>
+                        <path id="Line3" d="M35 27.2704L45 17" stroke="black" stroke-width="3"/>
+                        </g>
+                        </svg>
                 </button>
             </form>
         </section>
     </div>
     <script src="./app.js"></script>
     <script>
+        const grizzlyForm = document.querySelector('.grizzly-form')
         const submit_input = document.querySelector('#submit_input')
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
+            grizzlyForm.classList.add('fadeOut')
             const name = document.querySelector('.name').value
             window.sessionStorage.setItem('form-answer', JSON.stringify({
                 name: name
             }))
-            window.location.href = './pages/formemail.html'
+
+            window.addEventListener("transitionend", () => {
+                window.location.href = './pages/formemail.html'
+            });
         })
     </script>
 </body>

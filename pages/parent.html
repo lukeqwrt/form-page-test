@@ -1,5 +1,5 @@
-<!-- #version=0.0.0-0#7 ls 2023-11-10T03:42:18 8170CC3DD4842439-0-4CE601DCFE068076 -->
-<!-- #version=0.0.0-0#6 ls 2023-11-10T03:40:19 8170CC3DD4842439-95FAC3DD963A1F53-4CE601DCFE068076 -->
+<!-- #version=0.0.0-1 ls 2023-11-10T03:02:02 8170CC3DD4842439-0-4CE601DCFE068076 -->
+<!-- #version=0.0.0-0#1 ls 2023-11-10T03:02:02 8170CC3DD4842439-0-4CE601DCFE068076 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
         <section class="navigation">
             <nav class="container">
                 
-                <i onclick="window.location.href='./formemail.html'" class="fa-solid fa-chevron-left"></i>
+                <i onclick="window.location.href='./interview.html'" class="fa-solid fa-chevron-left"></i>
                 
                 <img src="../assets/logo-header-nav/Grizzly Smaller.png" alt="">
                 <div class="time">
@@ -67,7 +67,6 @@
                             <div class="top-active">
                                 <div class="active-connect"></div>
                                 <div class="active-circle">
-                                    <div class="dark"></div>
                                 </div>
                             </div>
                         </div>
@@ -76,6 +75,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -83,6 +85,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -90,6 +95,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -97,6 +105,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -104,6 +115,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -111,6 +125,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -118,6 +135,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -125,6 +145,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -132,6 +155,9 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
                         <div class="circle">
@@ -139,19 +165,24 @@
                             <div class="inner-circle">
                             </div>
                             <div class="top-active">
+                                <div class="active-connect"></div>
+                                <div class="active-circle">
+                                </div>
                             </div>
                         </div>
           
                     </div>
                 </div>
             </div>
-
-            <form class="grizzly-form submit_input">
-                <h1 class="form-question">Boom! Now What's Your High School Graduation Year and Birthday</h1>
-                <div class="input-wrapper">
-                    <input class="bday" type="text" placeholder="Birthday"
-                    onfocus="(this.type='date')" required/>
-                    <input type="text" placeholder="-Year-" class="grad">
+            <form class="grizzly-form calendar submit_input">
+                <h1 class="form-question calendar">YESSIR! Looks like you meet the basics for our application interview. Looks like we can help you DRAMATICALLY increase your university acceptance odds using our proven formulas, strategies, and resources.</h1>
+                <div class="input-wrapper calendar">
+                    <h3>Please fill out your details and you'll be taken to a calendar</h3>
+                    <div class="last_wrapper">
+                        <input class="name" type="text" placeholder="Parent full name" required>
+                        <input class="email" type="email" placeholder="Parent email" required>
+                        <input class="mobilenum" type="text" placeholder="Parent phone Number" required>
+                    </div>
                 </div>
                 <button id="get_started">
                     Get Started
@@ -167,6 +198,7 @@
             </form>
         </section>
     </div>
+
     <script src="../app.js"></script>
     <script>
         const grizzlyForm = document.querySelector('.grizzly-form')
@@ -174,16 +206,19 @@
         const submit_input = document.querySelector('.submit_input')
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
-            const bday = document.querySelector('.bday').value
-            const grad = document.querySelector('.grad').value
+            const name = document.querySelector('.name')
+            const email = document.querySelector('.email')
+            const mobilenum = document.querySelector('.mobilenum')
+            
             grizzlyForm.classList.add('fadeOut')
-            formAnswerCached.bday = bday
-            formAnswerCached.grad = grad
+            formAnswerCached.fullname = name.value
+            formAnswerCached.email = email.value
+            formAnswerCached.mobilenumber = mobilenum.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
-
             grizzlyForm.addEventListener("transitionend", () => {
-                window.location.href = './dreamuniversity.html'
+                window.location.href = './finishpage.html'
+
             });
         })
     </script>

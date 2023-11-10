@@ -1,3 +1,4 @@
+<!-- #version=0.0.0-0#1 ls 2023-11-10T08:23:53 8170CC3DD4842439-0-4CE601DCFE068076 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,34 +179,39 @@
                         <input type="radio" name="interview" id="interview1" checked="true" value="Yes">
                         <div class="check-interview">
                             <span class="circle-interview">
-                                Yes
+                                <img src="../assets/logo-header-nav/yes.png" alt="">
                             </span>
-                            <!-- <span>YouTube</span> -->
+                            <span>Yes</span>
                         </div>
                     </label>
                     <label for="interview2">
                         <input type="radio" name="interview" id="interview2" value="No">
                         <div class="check-interview">
                             <span class="circle-interview">
-                                No
+                                <img src="../assets/logo-header-nav/no.png" alt="">
                             </span>
-                            <!-- <span>YouTube</span> -->
+                            <span>No</span>
                         </div>
                     </label>
                 </div>
-                <button >
-                    Next
-                    <i class="fa-solid fa-arrow-right"></i>
+                <button id="get_started">
+                    Get Started
+                    <svg width="50" height="37" viewBox="0 0 56 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="grpArrow">
+                        <rect width="56" height="37" />
+                        <path id="Line1" d="M5 17.5H44" stroke="black" stroke-width="3"/>
+                        <path id="Line2" d="M35 8L45 18" stroke="black" stroke-width="3"/>
+                        <path id="Line3" d="M35 27.2704L45 17" stroke="black" stroke-width="3"/>
+                        </g>
+                        </svg>
                 </button>
-                <style>
-             
-                </style>
             </form>
         </section>
     </div>
 
     <script src="../app.js"></script>
     <script>
+        const grizzlyForm = document.querySelector('.grizzly-form')
         let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
         const user_name = document.querySelector('.user_name')
         const splitName = formAnswerCached.name.split(' ').slice(0, 1).join(' ')
@@ -214,11 +220,15 @@
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
             const commit = document.querySelector('input[name="interview"]:checked')
-
+            grizzlyForm.classList.add('fadeOut')
             formAnswerCached.commit = commit.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
-            window.location.href = './calendar.html'
+            
+            grizzlyForm.addEventListener("transitionend", () => {
+                window.location.href = './calendar.html'
+
+            });
         })
     </script>
 </body>

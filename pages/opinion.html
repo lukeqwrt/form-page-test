@@ -1,3 +1,4 @@
+<!-- #version=0.0.0-0#1 ls 2023-11-10T03:01:20 8170CC3DD4842439-0-4CE601DCFE068076 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,15 +159,23 @@
                 <div class="input-wrapper">
                     <input class="opinion-input" type="text" placeholder="Your Opinion" required/>
                 </div>
-                <button >
-                    Next
-                    <i class="fa-solid fa-arrow-right"></i>
+                <button id="get_started">
+                    Get Started
+                    <svg width="50" height="37" viewBox="0 0 56 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="grpArrow">
+                        <rect width="56" height="37" />
+                        <path id="Line1" d="M5 17.5H44" stroke="black" stroke-width="3"/>
+                        <path id="Line2" d="M35 8L45 18" stroke="black" stroke-width="3"/>
+                        <path id="Line3" d="M35 27.2704L45 17" stroke="black" stroke-width="3"/>
+                        </g>
+                        </svg>
                 </button>
             </form>
         </section>
     </div>
     <script src="../app.js"></script>
     <script>
+        const grizzlyForm = document.querySelector('.grizzly-form')
         let formAnswerCached = JSON.parse(window.sessionStorage.getItem('form-answer'));
         const user_name = document.querySelector('.user_name')
         const splitName = formAnswerCached.name.split(' ').slice(0, 1).join(' ')
@@ -176,11 +185,14 @@
         submit_input.addEventListener('submit', (e) => {
             e.preventDefault()
             const opinion = document.querySelector('.opinion-input')
-
+            grizzlyForm.classList.add('fadeOut')
             formAnswerCached.opinion = opinion.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
-            window.location.href = './ss.html'
+            grizzlyForm.addEventListener("transitionend", () => {
+                window.location.href = './ss.html'
+
+            });
         })
     </script>
 </body>
