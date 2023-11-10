@@ -18,7 +18,7 @@
         <section class="navigation">
             <nav class="container">
                 
-                <i onclick="window.location.href='./interview.html'" class="fa-solid fa-chevron-left"></i>
+                <i onclick="window.location.href='./calendar.html'" class="fa-solid fa-chevron-left"></i>
                 
                 <img src="../assets/logo-header-nav/Grizzly Smaller.png" alt="">
                 <div class="time">
@@ -174,9 +174,9 @@
                     </div>
                 </div>
             </div>
-            <form class="grizzly-form calendar submit_input">
-                <h1 class="form-question calendar">YESSIR! Looks like you meet the basics for our application interview. Looks like we can help you DRAMATICALLY increase your university acceptance odds using our proven formulas, strategies, and resources.</h1>
-                <div class="input-wrapper calendar">
+            <form class="grizzly-form calendar parent submit_input">
+                <h1 class="form-question  calendar">YESSIR! Looks like you meet the basics for our application interview. Looks like we can help you DRAMATICALLY increase your university acceptance odds using our proven formulas, strategies, and resources.</h1>
+                <div class="input-wrapper parent calendar">
                     <h3>Please fill out your details and you'll be taken to a calendar</h3>
                     <div class="last_wrapper">
                         <input class="name" type="text" placeholder="Parent full name" required>
@@ -211,9 +211,9 @@
             const mobilenum = document.querySelector('.mobilenum')
             
             grizzlyForm.classList.add('fadeOut')
-            formAnswerCached.fullname = name.value
-            formAnswerCached.email = email.value
-            formAnswerCached.mobilenumber = mobilenum.value
+            formAnswerCached.parentfullname = name.value
+            formAnswerCached.parentEmail = email.value
+            formAnswerCached.parentmobilenum = mobilenum.value
 
             window.sessionStorage.setItem('form-answer', JSON.stringify(formAnswerCached))
             grizzlyForm.addEventListener("transitionend", () => {

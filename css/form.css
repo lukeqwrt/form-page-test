@@ -1,5 +1,5 @@
-/* #version=0.0.0-0#36 ls 2023-11-10T09:33:50 82C0AB5FBE2D7F96 */
-/* #version=0.0.0-0#35 ls 2023-11-10T09:13:28 5417798B04D42DE2 */
+/* #version=0.0.0-0#39 ls 2023-11-10T10:00:14 282E7EF08EDEF0B */
+/* #version=0.0.0-0#38 ls 2023-11-10T09:57:16 740B14C7B0156B7C */
 *{
     padding: 0;
     margin: 0;
@@ -170,7 +170,21 @@ body{
     animation: fadein 1s ease;
     transition: 0.7s ease;
 }
+.grizzly-form.parent{
+    animation: none;
+}
+.input-wrapper.parent{
+    animation: fadein 1s ease;
+}
 .grizzly-form.fadeOut{
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(0,20px);
+}
+.input-wrapper{
+    transition: 0.7s ease;
+}
+.input-wrapper.fadeOut{
     visibility: hidden;
     opacity: 0;
     transform: translate(0,20px);
