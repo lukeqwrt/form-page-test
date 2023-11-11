@@ -1,0 +1,170 @@
+<!-- #version=0.0.0-0#1 ls 2023-11-10T09:46:19 8170CC3DD4842439-2C2028251A9E952E-B2900766F44A0FDE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form test</title>
+    <link rel="icon" href="../assets/logo-header-nav/Grizzly Smaller.png">
+    
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/lastpage.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        .main{
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container_cal{
+            padding: 20px;
+            padding-bottom: 80px;
+            margin: 0 auto;
+            max-width: 1140px;
+            width: 100%;
+            flex: 1;
+        }
+        .message_wrapper{
+            color: #fff;
+            margin-top: 40px;
+          
+        }
+        .message_wrapper h1{
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 51px;
+        }
+        .message_wrapper p{
+            font-size: 18px;
+            text-align: center;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 27px; /* 27px */
+            margin-top: 20px;
+            color: #fff;
+            opacity: 0.7;
+        }
+        .message_wrapper .message{
+            max-width: 900px;
+            
+        }
+        .divide{
+            min-height: 1000px;
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 400px 1fr;
+            gap: 20px;
+        }
+        .divide .consultation{
+            align-self: center;
+        }
+        .divide .consultation h3{
+            color: #fff;
+            text-align: left;
+            font-size: 42px;
+            max-width: 400px;
+        }
+        .divide .consultation p{
+            color: #fff;
+            opacity: 0.7;
+            margin-top: 16px;
+            max-width: 400px;
+            line-height: 25.6px;
+        }
+        .divide .consultation .time{
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .divide .consultation .time,
+        .divide .consultation .call{
+            color: #fff;
+            font-weight: 500;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28.8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+        }
+        .divide .embed embed{
+            width: 100%;
+            height: 100%;
+        }
+        .footer{
+            color: #fff;
+            opacity: 0.7;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 21px;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        @media screen and (min-width: 992px) {
+            .divide{
+                margin-top: 60px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
+
+                min-height:500px;
+          
+            }
+            .divide .consultation{
+                align-self: center;
+            }
+            
+        }
+        @media screen and (min-width: 1400px) {
+            .container_cal{
+                padding: 20px 20px;
+                padding-bottom: 80px;
+                margin: 0 auto;
+                max-width: 1320px;
+                flex: 1;
+            }
+        }
+    </style>
+    <div class="main">
+        <div class="container_cal">
+            <div class="message_wrapper">
+                <div class="message">
+                    <h3>SCHEDULE YOUR FREE 30-MINUTE</h3>
+                    <p>On this call, we’ll show you how to rapidly scale your service business to 7-figures using proven funnels, frameworks and scientific customer acquisition.</p>
+                </div>
+            </div>
+            <div class="divide">
+                <div class="consultation">
+                    <h3>Book Your Free  Consultation Call</h3>
+                    <p>Book a 30 minutes free call and then you can register for the program.</p>
+                    <div class="time">
+                        <img src="../assets/Frame 238688.png" alt="">
+                        <span>30 min</span>
+                    </div>
+                    <div class="call">
+                        <img src="../assets/Frame 238689.svg" alt="">
+                        <span>Phone Call</span>
+                    </div>
+                </div>
+                <div class="embed">
+                    <embed src="https://calendly.com/joaquin-revello/joaquin-revello-grizzly-elite-one-on-ones?month=2023-11&fbclid=IwAR2VYhAHigUtjQ74aydjXZe2z_Tfa6jNh3yOCcWBlGY_K2RHRvV9oKugyHY" type="">
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <p>Terms of Use | Terms of Purchase | Privacy Policy</p>
+        </div>
+    </div>
+    <script>
+        sessionStorage.clear();
+    </script>
+</body>
+</html>
